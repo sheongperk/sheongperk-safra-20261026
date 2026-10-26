@@ -316,6 +316,11 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // DA Universal Editor: keep instrumentation in sync with re-rendered blocks
+  if (window.location.hostname.includes('ue.da.live')) {
+    import(`${window.hlx.codeBasePath}/ue/scripts/ue.js`).then(({ default: ue }) => ue());
+  }
 }
 
 /**

@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const AUTOPLAY_INTERVAL = 3500;
 
@@ -42,7 +43,7 @@ function updateActiveSlide(block, realIndex) {
   });
 }
 
-function showSlide(block, index, behavior = 'smooth') {
+export function showSlide(block, index, behavior = 'smooth') {
   const slides = [...block.querySelectorAll('.carousel-promo-banner-slide')];
   if (!slides.length) return;
   const realIndex = (index + slides.length) % slides.length;
@@ -67,13 +68,16 @@ export default function decorate(block) {
     slide.setAttribute('role', 'group');
     slide.setAttribute('aria-roledescription', 'slide');
     slide.setAttribute('aria-label', `${index + 1} of ${rows.length}`);
+    // keep Universal Editor instrumentation on the rebuilt slide
+    moveInstrumentation(row, slide);
 
     [...row.children].forEach((cell) => {
       const hasImage = cell.querySelector('picture, img');
       const hasText = cell.textContent.trim() !== '';
       if (hasImage) {
         cell.className = 'carousel-promo-banner-slide-image';
-      } else if (hasText) {
+      } else if (hasText || cell.hasAttribute('data-aue-prop')) {
+        // empty text cells stay in Universal Editor so authors can fill the optional text field
         cell.className = 'carousel-promo-banner-slide-content';
       } else {
         return; // drop empty cells
@@ -91,6 +95,7 @@ export default function decorate(block) {
       i === 0,
       [{ media: '(min-width: 900px)', width: '2000' }, { width: '900' }],
     );
+    moveInstrumentation(img, optimized.querySelector('img'));
     img.closest('picture').replaceWith(optimized);
   });
 
@@ -140,6 +145,8 @@ export default function decorate(block) {
   const startAutoplay = () => {
     stopAutoplay();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // no autoplay while authoring in Universal Editor
+    if (block.hasAttribute('data-aue-resource')) return;
     timer = setInterval(() => {
       if (!document.hidden) showSlide(block, current() + 1);
     }, AUTOPLAY_INTERVAL);

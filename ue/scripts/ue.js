@@ -10,7 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-import { showSlide } from '../../blocks/carousel/carousel.js';
 import { moveInstrumentation } from './ue-utils.js';
 
 const setupObservers = () => {
@@ -108,8 +107,13 @@ const setupUEEventHandlers = () => {
             element.open = true;
             break;
           case 'carousel':
+            // this project's carousel does not export showSlide; bring the selected slide into view
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            break;
+          case 'carousel-promo-banner':
             if (index) {
-              showSlide(blockEl, index);
+              import('../../blocks/carousel-promo-banner/carousel-promo-banner.js')
+                .then(({ showSlide }) => showSlide(blockEl, parseInt(index, 10)));
             }
             break;
           case 'tabs':

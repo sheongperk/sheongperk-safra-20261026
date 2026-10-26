@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const PAGE_SIZE = 4;
 const DATE_PATTERN = /^\s*(\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}|\d{1,2}\s+\w+\s+\d{4}|\w+\s+\d{1,2},?\s+\d{4})\s*$/;
@@ -64,6 +65,8 @@ export default function decorate(block) {
 
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
+    // keep Universal Editor instrumentation on the rebuilt card
+    moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
 
     [...li.children].forEach((cell) => {
@@ -86,9 +89,9 @@ export default function decorate(block) {
   });
 
   list.querySelectorAll('picture > img').forEach((img) => {
-    img.closest('picture').replaceWith(
-      createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
-    );
+    const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimized.querySelector('img'));
+    img.closest('picture').replaceWith(optimized);
   });
 
   block.textContent = '';
