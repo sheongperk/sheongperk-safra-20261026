@@ -14,6 +14,21 @@ async function fetchFooter() {
     const img = picture.querySelector('img');
     if (img) picture.replaceWith(img);
   });
+  // EDS delivery also puts each image link of a row in its own <p>; merge consecutive
+  // image-only link paragraphs back into one row (e.g. social icons, partner logos)
+  const isImageLink = (p) => p.tagName === 'P' && !p.textContent.trim()
+    && p.children.length === 1 && p.firstElementChild.matches('a') && !!p.querySelector('a > img');
+  container.querySelectorAll(':scope > div').forEach((section) => {
+    [...section.children].forEach((p) => {
+      const prev = p.previousElementSibling;
+      if (prev && isImageLink(p) && (isImageLink(prev) || prev.dataset.row)) {
+        prev.dataset.row = 'true';
+        prev.append(p.firstElementChild);
+        p.remove();
+      }
+    });
+    section.querySelectorAll('[data-row]').forEach((p) => delete p.dataset.row);
+  });
   container.querySelectorAll('img[src]').forEach((img) => {
     img.src = new URL(img.getAttribute('src'), resp.url).href;
     img.loading = 'lazy';
