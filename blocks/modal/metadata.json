@@ -1,0 +1,10 @@
+{
+  "variantName": "modal",
+  "baseBlock": "modal",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Opens fragment content in a dialog overlay when a /modals/ link is clicked; not authored as a block.",
+  "visualCharacteristics": {
+    "purpose": "modal-dialog"
+  }
+}

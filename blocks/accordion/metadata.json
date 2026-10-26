@@ -1,0 +1,17 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Expandable list of label/body items rendered as collapsible panels.",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "purpose": "faq",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title-body-expandable",
+    "buttonCount": 0,
+    "imageCount": 0
+  }
+}

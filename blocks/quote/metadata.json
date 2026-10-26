@@ -1,0 +1,17 @@
+{
+  "variantName": "quote",
+  "baseBlock": "quote",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Highlighted quotation with an optional attribution line.",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "purpose": "testimonial",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "quotation-attribution",
+    "buttonCount": 0,
+    "imageCount": 0
+  }
+}

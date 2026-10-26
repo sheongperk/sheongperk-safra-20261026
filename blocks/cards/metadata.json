@@ -1,0 +1,16 @@
+{
+  "variantName": "cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Grid of cards, each with an image, rich-text body and CTA, with per-card layout and CTA style options.",
+  "visualCharacteristics": {
+    "purpose": "content-grid",
+    "imagePattern": "image-per-item"
+  },
+  "contentPattern": {
+    "structure": "image-body-cardstyle-ctastyle repeating",
+    "buttonCount": 1,
+    "imageCount": 1
+  }
+}

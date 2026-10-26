@@ -1,0 +1,16 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Sliding carousel of image cards with an optional intro heading and text shown beside the slider.",
+  "visualCharacteristics": {
+    "purpose": "content-slider",
+    "imagePattern": "image-per-item"
+  },
+  "contentPattern": {
+    "structure": "intro-text then image-body-cardstyle-ctastyle repeating slides",
+    "buttonCount": 1,
+    "imageCount": 1
+  }
+}

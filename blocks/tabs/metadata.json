@@ -1,0 +1,14 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Tabbed panels, each with a tab label, optional heading, image and rich-text content.",
+  "visualCharacteristics": {
+    "purpose": "tabbed-panels"
+  },
+  "contentPattern": {
+    "structure": "label / heading / heading-type / image / content repeating",
+    "imageCount": 1
+  }
+}

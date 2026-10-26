@@ -1,0 +1,18 @@
+{
+  "variantName": "table",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Data table with an optional header row.",
+  "visualCharacteristics": {
+    "purpose": "data-table",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "header-row + data-rows grid",
+    "imageCount": 0
+  },
+  "variants": [
+    "no-header"
+  ]
+}

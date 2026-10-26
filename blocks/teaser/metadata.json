@@ -1,0 +1,17 @@
+{
+  "variantName": "teaser",
+  "baseBlock": "teaser",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Full-width teaser banner with background image or video, headline and button over a swoosh graphic.",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "purpose": "banner",
+    "imagePattern": "background-image-or-video"
+  },
+  "contentPattern": {
+    "structure": "blurb / style / video-url / image / button-text rows",
+    "buttonCount": 1,
+    "imageCount": 1
+  }
+}

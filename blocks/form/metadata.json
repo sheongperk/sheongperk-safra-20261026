@@ -1,0 +1,15 @@
+{
+  "variantName": "form",
+  "baseBlock": "form",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Renders a form from a JSON form definition and posts submissions to a submit URL.",
+  "visualCharacteristics": {
+    "purpose": "form",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "form-definition-json link + submit link",
+    "imageCount": 0
+  }
+}

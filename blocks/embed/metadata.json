@@ -1,0 +1,13 @@
+{
+  "variantName": "embed",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Embeds a YouTube, Vimeo, Twitter or other external URL, with an optional click-to-play placeholder image.",
+  "visualCharacteristics": {
+    "purpose": "media-embed"
+  },
+  "contentPattern": {
+    "structure": "single-cell optional placeholder image + embed link"
+  }
+}

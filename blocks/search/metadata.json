@@ -1,0 +1,13 @@
+{
+  "variantName": "search",
+  "baseBlock": "search",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Site search box that filters and lists results from a query index.",
+  "visualCharacteristics": {
+    "purpose": "site-search"
+  },
+  "contentPattern": {
+    "structure": "single-cell optional query-index source link"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "variantName": "structured-teaser",
+  "baseBlock": "structured-teaser",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Teaser with image, title, description and CTA rendered from a structured-content fragment.",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "purpose": "teaser",
+    "imagePattern": "image-text-split"
+  },
+  "contentPattern": {
+    "structure": "single-cell structured-content fragment path",
+    "buttonCount": 1,
+    "imageCount": 1
+  }
+}

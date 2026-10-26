@@ -1,0 +1,14 @@
+{
+  "variantName": "columns",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Multi-column layout where each cell can hold text, an image or a video link.",
+  "visualCharacteristics": {
+    "purpose": "layout",
+    "imagePattern": "optional-image-column"
+  },
+  "contentPattern": {
+    "structure": "multi-column rows"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variantName": "fragment",
+  "baseBlock": "fragment",
+  "version": "1.0.0",
+  "created": "2026-10-26T18:00:51.000Z",
+  "description": "Includes the content of another page (a fragment) inline on the current page.",
+  "visualCharacteristics": {
+    "purpose": "content-reuse"
+  },
+  "contentPattern": {
+    "structure": "single-cell fragment path link"
+  }
+}
