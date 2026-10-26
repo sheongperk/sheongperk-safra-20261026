@@ -12,6 +12,13 @@ async function fetchNav() {
   if (!resp.ok) return null;
   const container = document.createElement('div');
   container.innerHTML = await resp.text();
+  // EDS delivery wraps images in <picture> and the label of a list item with a sub-list in <p>;
+  // flatten both so the fragment has the same shape locally and on EDS
+  container.querySelectorAll('picture').forEach((picture) => {
+    const img = picture.querySelector('img');
+    if (img) picture.replaceWith(img);
+  });
+  container.querySelectorAll('li > p').forEach((p) => p.replaceWith(...p.childNodes));
   container.querySelectorAll('img[src]').forEach((img) => {
     img.src = new URL(img.getAttribute('src'), resp.url).href;
     img.loading = 'eager';

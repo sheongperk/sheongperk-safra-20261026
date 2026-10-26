@@ -9,6 +9,11 @@ async function fetchFooter() {
   if (!resp.ok) return null;
   const container = document.createElement('div');
   container.innerHTML = await resp.text();
+  // EDS delivery wraps images in <picture>; flatten so local and EDS markup lay out the same
+  container.querySelectorAll('picture').forEach((picture) => {
+    const img = picture.querySelector('img');
+    if (img) picture.replaceWith(img);
+  });
   container.querySelectorAll('img[src]').forEach((img) => {
     img.src = new URL(img.getAttribute('src'), resp.url).href;
     img.loading = 'lazy';
