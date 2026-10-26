@@ -1,0 +1,11 @@
+{
+  "variantName": "carousel-promo-banner",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-width slider of image-only promotional banners (banner text is baked into the artwork). Each slide image links to a promotion or article. Prev/next chevron arrow buttons sit on the left and right edges, vertically centred over the image; slide indicators below.",
+  "contentPattern": "One row per slide, two columns: cell 1 holds the banner image (linked to the slide target, or the link may be placed in cell 2); cell 2 holds optional text content. When cell 2 contains only a link, the link is moved onto the image and the cell is removed.",
+  "options": [],
+  "memberVariantIds": ["carousel-promo-banner"],
+  "usage": "Hero promotional banner rotator at the top of landing pages such as https://www.safra.sg/nsman-magazine.",
+  "reuseGuidance": "Use for full-width, image-only linked promo banners with edge arrows. Use the standard carousel when slides carry text overlays or multiple items per view."
+}

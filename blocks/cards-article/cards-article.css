@@ -1,0 +1,169 @@
+/* cards-article: values extracted from https://www.safra.sg/nsman-magazine (.container-sm .rte.tohide) */
+.cards-article {
+  /* source: 40px listing header + 15px item padding above; 15px col + 15px item padding at the sides */
+  padding: 55px 30px 15px;
+  color: #000;
+}
+
+.cards-article > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-article > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: #fff;
+}
+
+.cards-article > ul > li[hidden] {
+  display: none;
+}
+
+/* image: 16:9 (source padding-top 56.25%), object-fit cover */
+.cards-article .cards-article-image {
+  line-height: 0;
+}
+
+.cards-article .cards-article-image p {
+  margin: 0;
+}
+
+.cards-article .cards-article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.cards-article .cards-article-body {
+  padding: 20px 0;
+}
+
+/* headline: source .nsman-story-headline.article-list-title-2 */
+.cards-article .cards-article-title {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #000;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.cards-article .cards-article-title a:any-link,
+.cards-article .cards-article-title a:hover,
+.cards-article .cards-article-title a:focus {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+/* whole card is clickable through the headline link */
+.cards-article .cards-article-linked .cards-article-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* excerpt: one line with ellipsis */
+.cards-article .cards-article-excerpt {
+  display: -webkit-box;
+  margin: 0;
+  padding: 5px 0;
+  overflow: hidden;
+  color: #333;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25.6px;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+/* publication date with clock icon (source icomoon glyph, 20px, #333, left 0, vertically centred) */
+.cards-article .cards-article-date {
+  position: relative;
+  margin: 0;
+  padding: 5px 0 5px 40px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
+.cards-article .cards-article-date::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  background-color: #333;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10.8'/%3E%3Cpolyline points='12 5.5 12 12 16.5 14.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* load more: source ul.nsman-pagination > li.active > a#load_more */
+.cards-article .cards-article-load-more {
+  display: flex;
+  justify-content: center;
+  margin: 81px 0 18px;
+}
+
+.cards-article .cards-article-load-more button {
+  margin: 0;
+  padding: 10px 40px;
+  border: 0;
+  border-radius: 0;
+  background-color: rgb(0 0 0 / 50%);
+  color: #fff;
+  font-family: Heebo, serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cards-article .cards-article-load-more button:hover,
+.cards-article .cards-article-load-more button:focus {
+  background-color: rgb(0 0 0 / 50%);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* source switches to two columns at bootstrap col-md (768px) */
+@media (width >= 768px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards-article > ul > li {
+    min-height: 472px;
+  }
+}
+
+/* source quirk: .nsman-story-headline gets margin-top 15px between 1012px and 1398px */
+@media (width >= 1012px) and (width <= 1398px) {
+  .cards-article .cards-article-title {
+    margin-top: 15px;
+  }
+}

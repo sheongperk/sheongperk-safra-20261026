@@ -1,0 +1,11 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two-column grid of article teaser cards (single column on mobile): 16:9 image, bold italic serif headline clamped to two lines, one-line excerpt truncated with an ellipsis, clock icon plus publication date. The whole card links to the article. Four cards are shown initially; a centred 'Load more' button below reveals four more at a time.",
+  "contentPattern": "One row per article, two columns: cell 1 holds the article image; cell 2 holds the headline (a heading linked to the article), an excerpt paragraph and a publication date paragraph (e.g. 26/10/2026). The headline link makes the whole card clickable. More than four rows enables the Load more button.",
+  "options": [],
+  "memberVariantIds": ["cards-article"],
+  "usage": "Article listing on magazine and news landing pages such as https://www.safra.sg/nsman-magazine.",
+  "reuseGuidance": "Use for article or blog teaser listings with image, headline, excerpt and date. Use the standard cards block for generic feature cards without dates or pagination."
+}

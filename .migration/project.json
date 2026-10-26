@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "sheongperk-safra-20261026": {
+      "previewOrg": "sheongperk",
+      "previewSite": "sheongperk-safra-20261026",
+      "contentHostUrl": "https://content.da.live/sheongperk/sheongperk-safra-20261026/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "nsman-magazine",
+      "urls": [
+        "https://www.safra.sg/nsman-magazine"
+      ],
+      "representativeUrl": "https://www.safra.sg/nsman-magazine",
+      "description": "NSman Magazine landing page: promo banner carousel, centered title, article teaser card grid and eNSMAN logo",
+      "urlPattern": "/*",
+      "blocks": [
+        {
+          "name": "carousel-promo-banner",
+          "instances": [
+            ".carousel-banner.carousel-banner--hero",
+            ".carousel-banner--hero .banner-slider"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".container-sm .rte.tohide",
+            ".rte.tohide"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Promotional banner carousel",
+          "selector": [
+            ".carousel-banner.carousel-banner--hero"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-promo-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Magazine title",
+          "selector": [
+            ".carousel-banner--hero + .rte",
+            "div.rte:has(> div > h1)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".carousel-banner--hero + .rte h1"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Top reads article listing",
+          "selector": [
+            ".container.container-sm"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "eNSMAN logo",
+          "selector": [
+            ".container-sm + .rte",
+            "div.rte:has(img[alt='eNSMAN Logo'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "img[alt='eNSMAN Logo']"
+          ]
+        }
+      ]
+    }
+  ]
+}

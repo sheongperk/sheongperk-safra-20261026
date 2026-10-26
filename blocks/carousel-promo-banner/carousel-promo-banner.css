@@ -1,0 +1,149 @@
+/*
+ * carousel-promo-banner
+ * Values taken from https://www.safra.sg/nsman-magazine (.carousel-banner--hero).
+ */
+
+/* the source slider runs edge to edge, outside the 1140px content column */
+main > .section > .carousel-promo-banner-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.carousel-promo-banner {
+  position: relative;
+  width: 100%;
+  color: rgb(0 0 0);
+
+  /* source slide box is 5.39px taller than the banner (inline-block line box) */
+  padding-bottom: 5.39px;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slides {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: scroll hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+/*
+ * Banner box: source height is (20% + 20%) padding of the slide width
+ * plus the 31.49px collapsed margin of its empty h1, never below 360px.
+ */
+.carousel-promo-banner .carousel-promo-banner-slide-image {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 360px;
+  padding-top: calc(40% + 31.49px);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slide-image p {
+  margin: 0;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slide-image a {
+  text-decoration: none;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slide-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.carousel-promo-banner .carousel-promo-banner-slide-content {
+  padding: 16px;
+}
+
+/* arrows: white 50px discs, 20px from the slider edges */
+.carousel-promo-banner .carousel-promo-banner-navigation {
+  position: static;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation button {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255 255 255);
+  box-shadow: rgb(0 0 0 / 20%) 0 0 10px 0;
+  color: rgb(0 0 0);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation .slide-prev {
+  left: 20px;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation .slide-next {
+  right: 20px;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation button:hover {
+  background-color: rgb(235 0 63);
+  color: rgb(255 255 255);
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation button:focus {
+  outline: none;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation button:focus-visible {
+  outline: 2px solid rgb(235 0 63);
+  outline-offset: 2px;
+}
+
+/* chevron glyph (source: 32px icomoon chevron, ~10x18px, 2px stroke) */
+.carousel-promo-banner .carousel-promo-banner-navigation button::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid currentcolor;
+  border-left: 2px solid currentcolor;
+  box-sizing: border-box;
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation .slide-prev::after {
+  transform: translateX(3px) rotate(-45deg);
+}
+
+.carousel-promo-banner .carousel-promo-banner-navigation .slide-next::after {
+  transform: translateX(-3px) rotate(135deg);
+}
+
+/* source slider has no dots */
+.carousel-promo-banner .carousel-promo-banner-indicators {
+  display: none;
+}

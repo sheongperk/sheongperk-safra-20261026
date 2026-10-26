@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.safra.sg/nsman-magazine",
+  "path": "nsman-magazine",
+  "timestamp": "2026-10-26T15:24:26.952Z",
+  "title": "NSMAN Magazine | SAFRA",
+  "template": "nsman-magazine",
+  "blocks": [
+    "carousel-promo-banner",
+    "cards-article"
+  ]
+}

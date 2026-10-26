@@ -1,0 +1,30 @@
+/* SAFRA brand tokens, extracted from https://www.safra.sg/nsman-magazine */
+:root {
+  /* colors */
+  --brand-background-color: #fff;
+  --brand-text-color: #000;
+  --brand-dark-color: #000;
+  --brand-light-color: #f0f0f0;
+  --brand-link-color: #1863dc;
+  --brand-link-hover-color: #1863dc;
+  --brand-theme-color: #1863dc;
+  --brand-light-text-color: #fff;
+
+  /* fonts */
+  --brand-body-font-family: myriadpro, myriadpro-fallback, sans-serif;
+  --brand-heading-font-family: myriadpro, myriadpro-fallback, sans-serif;
+  --brand-body-font-weight: 300;
+  --brand-body-font-size: 16px;
+  --brand-body-line-height: 1.15;
+
+  /* headings */
+  --brand-h1-font-size: 32px;
+  --brand-h1-font-weight: 600;
+  --brand-h1-line-height: 1.5;
+  --brand-h1-margin: 50px 0 20px;
+
+  /* layout */
+  --brand-content-max-width: 1140px;
+  --brand-content-gutter: 15px;
+  --brand-section-spacing: 0;
+}
