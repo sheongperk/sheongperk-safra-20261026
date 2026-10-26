@@ -211,9 +211,17 @@ footer .footer-column:nth-child(3) .footer-icon-row a:any-link {
   padding: 10px 20px;
 }
 
+/* logos render at the source sizes (126x98, 80x80) regardless of the bitmap resolution */
 footer .footer-column:nth-child(3) .footer-icon-row img {
   width: auto;
   height: auto;
+  max-height: 98px;
+}
+
+/* the cards image is a 350x70 bitmap; the source shows it at 326x65 */
+footer .footer-column:first-child .footer-image img {
+  width: auto;
+  max-height: 65px;
 }
 
 /* legal bar */
