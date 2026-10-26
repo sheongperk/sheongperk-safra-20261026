@@ -1,0 +1,103 @@
+{
+  "definitions": [
+    {
+      "title": "Table",
+      "id": "table",
+      "model": "table",
+      "filter": "table",
+      "plugins": {
+        "da": {
+          "name": "table",
+          "rows": 2,
+          "columns": 2,
+          "behaviour": "columns"
+        }
+      }
+    },
+    {
+      "title": "Table Row",
+      "id": "table-row",
+      "model": "table-row",
+      "filter": "table-row",
+      "plugins": {
+        "da": {
+          "name": "table-row",
+          "behaviour": "columns-row"
+        }
+      }
+    },
+    {
+      "title": "Table Cell",
+      "id": "table-cell",
+      "model": "table-cell",
+      "filter": "table-cell",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div></div>",
+          "behaviour": "columns-cell"
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "table",
+      "fields": [
+        {
+          "component": "number",
+          "valueType": "number",
+          "name": "columns",
+          "label": "Number of Columns",
+          "value": 2,
+          "validation": {
+            "numberMin": 1,
+            "numberMax": 8
+          }
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "classes",
+          "label": "Header Row",
+          "value": "",
+          "options": [
+            { "name": "First row is the header", "value": "" },
+            { "name": "No header row", "value": "no-header" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-cell",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Text",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "table",
+      "components": [
+        "table-row"
+      ]
+    },
+    {
+      "id": "table-row",
+      "components": [
+        "table-cell"
+      ]
+    },
+    {
+      "id": "table-cell",
+      "components": [
+        "text"
+      ]
+    }
+  ]
+}

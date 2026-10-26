@@ -26,7 +26,8 @@
       "dynamicmedia-template",
       "teaser",
       "carousel-promo-banner",
-      "cards-article"
+      "cards-article",
+      "structured-teaser"
     ]
   },
   {
@@ -76,6 +77,24 @@
     "components": [
       "text",
       "image"
+    ]
+  },
+  {
+    "id": "table",
+    "components": [
+      "table-row"
+    ]
+  },
+  {
+    "id": "table-row",
+    "components": [
+      "table-cell"
+    ]
+  },
+  {
+    "id": "table-cell",
+    "components": [
+      "text"
     ]
   },
   {

@@ -1,0 +1,33 @@
+{
+  "definitions": [
+    {
+      "title": "Structured Teaser",
+      "id": "structured-teaser",
+      "model": "structured-teaser",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 1,
+          "fields": [
+            { "name": "teaserPath", "selector": "div>div>p>a[href]" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "structured-teaser",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "teaserPath",
+          "label": "Teaser Fragment Path",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

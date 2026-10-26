@@ -1,0 +1,41 @@
+{
+  "definitions": [
+    {
+      "title": "Form",
+      "id": "form",
+      "model": "form",
+      "plugins": {
+        "da": {
+          "rows": 2,
+          "columns": 1,
+          "fields": [
+            { "name": "reference", "selector": "div:nth-child(1)>div>p>a[href]" },
+            { "name": "action", "selector": "div:nth-child(2)>div>p>a[href]" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "form",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "reference",
+          "label": "Form Definition (JSON spreadsheet path, e.g. /forms/contact-us.json)",
+          "required": true
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "action",
+          "label": "Submit URL",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

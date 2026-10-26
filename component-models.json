@@ -355,6 +355,50 @@
     ]
   },
   {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "placeholder",
+        "label": "Placeholder Image (optional)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "placeholderAlt",
+        "label": "Placeholder Image Alt"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "embedUrl",
+        "label": "Embed URL (YouTube, Vimeo, Twitter)",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "reference",
+        "label": "Form Definition (JSON spreadsheet path, e.g. /forms/contact-us.json)",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "action",
+        "label": "Submit URL",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -509,6 +553,63 @@
         "name": "div:nth-child(1)>div:nth-child(1)>p:nth-child(1)>a:nth-child(1)",
         "label": "Search URL Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "structured-teaser",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "teaserPath",
+        "label": "Teaser Fragment Path",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "table",
+    "fields": [
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "columns",
+        "label": "Number of Columns",
+        "value": 2,
+        "validation": {
+          "numberMin": 1,
+          "numberMax": 8
+        }
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Header Row",
+        "value": "",
+        "options": [
+          {
+            "name": "First row is the header",
+            "value": ""
+          },
+          {
+            "name": "No header row",
+            "value": "no-header"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table-cell",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
       }
     ]
   },

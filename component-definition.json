@@ -308,6 +308,52 @@
           }
         },
         {
+          "title": "Embed",
+          "id": "embed",
+          "model": "embed",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "placeholder",
+                  "selector": "div>div>picture>img[src]"
+                },
+                {
+                  "name": "placeholderAlt",
+                  "selector": "div>div>picture>img[alt]"
+                },
+                {
+                  "name": "embedUrl",
+                  "selector": "div>div>p>a[href]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Form",
+          "id": "form",
+          "model": "form",
+          "plugins": {
+            "da": {
+              "rows": 2,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "reference",
+                  "selector": "div:nth-child(1)>div>p>a[href]"
+                },
+                {
+                  "name": "action",
+                  "selector": "div:nth-child(2)>div>p>a[href]"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",
@@ -414,6 +460,61 @@
             "da": {
               "rows": 1,
               "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Structured Teaser",
+          "id": "structured-teaser",
+          "model": "structured-teaser",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "teaserPath",
+                  "selector": "div>div>p>a[href]"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Table",
+          "id": "table",
+          "model": "table",
+          "filter": "table",
+          "plugins": {
+            "da": {
+              "name": "table",
+              "rows": 2,
+              "columns": 2,
+              "behaviour": "columns"
+            }
+          }
+        },
+        {
+          "title": "Table Row",
+          "id": "table-row",
+          "model": "table-row",
+          "filter": "table-row",
+          "plugins": {
+            "da": {
+              "name": "table-row",
+              "behaviour": "columns-row"
+            }
+          }
+        },
+        {
+          "title": "Table Cell",
+          "id": "table-cell",
+          "model": "table-cell",
+          "filter": "table-cell",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div></div>",
+              "behaviour": "columns-cell"
             }
           }
         },
