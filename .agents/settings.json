@@ -1,1 +1,6 @@
-{"enabledPlugins": {"excat-block-library@excat-extended": true}}
+{
+  "enabledPlugins": {
+    "excat-block-library@excat-extended": true,
+    "edge-delivery-services@excat-marketplace": true
+  }
+}
