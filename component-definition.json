@@ -81,6 +81,43 @@
           }
         },
         {
+          "title": "Cards Article",
+          "id": "cards-article",
+          "model": "cards-article",
+          "filter": "cards-article",
+          "plugins": {
+            "da": {
+              "rows": 0,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Article Card",
+          "id": "cards-article-item",
+          "model": "cards-article-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2,
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1) picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1) picture>img[alt]"
+                },
+                {
+                  "name": "text",
+                  "selector": "div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "model": "cards",
@@ -116,6 +153,47 @@
                 {
                   "name": "variant",
                   "selector": "div:nth-child(3)>:first-child"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Carousel Promo Banner",
+          "id": "carousel-promo-banner",
+          "model": "carousel-promo-banner",
+          "filter": "carousel-promo-banner",
+          "plugins": {
+            "da": {
+              "rows": 0,
+              "columns": 0
+            }
+          }
+        },
+        {
+          "title": "Promo Banner Slide",
+          "id": "carousel-promo-banner-slide",
+          "model": "carousel-promo-banner-slide",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2,
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1) picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1) picture>img[alt]"
+                },
+                {
+                  "name": "link",
+                  "selector": "div:nth-child(1)>a[href]"
+                },
+                {
+                  "name": "text",
+                  "selector": "div:nth-child(2)"
                 }
               ]
             }

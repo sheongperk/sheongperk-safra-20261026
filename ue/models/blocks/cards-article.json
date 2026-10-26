@@ -1,0 +1,67 @@
+{
+  "definitions": [
+    {
+      "title": "Cards Article",
+      "id": "cards-article",
+      "model": "cards-article",
+      "filter": "cards-article",
+      "plugins": {
+        "da": {
+          "rows": 0,
+          "columns": 0
+        }
+      }
+    },
+    {
+      "title": "Article Card",
+      "id": "cards-article-item",
+      "model": "cards-article-item",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "fields": [
+            { "name": "image", "selector": "div:nth-child(1) picture>img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(1) picture>img[alt]" },
+            { "name": "text", "selector": "div:nth-child(2)" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "cards-article-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Headline (linked), excerpt and date",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "cards-article",
+      "components": [
+        "cards-article-item"
+      ]
+    }
+  ]
+}

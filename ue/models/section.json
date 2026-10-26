@@ -50,7 +50,9 @@
         "text",
         "video",
         "dynamicmedia-template",
-        "teaser"
+        "teaser",
+        "carousel-promo-banner",
+        "cards-article"
       ]
     }
   ]

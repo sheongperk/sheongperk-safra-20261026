@@ -25,7 +25,8 @@
       "video",
       "dynamicmedia-template",
       "teaser",
-      "promotion"
+      "carousel-promo-banner",
+      "cards-article"
     ]
   },
   {
@@ -35,9 +36,21 @@
     ]
   },
   {
+    "id": "cards-article",
+    "components": [
+      "cards-article-item"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel-promo-banner",
+    "components": [
+      "carousel-promo-banner-slide"
     ]
   },
   {
