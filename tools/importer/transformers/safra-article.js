@@ -61,7 +61,76 @@ function processLead(element, document) {
   });
 }
 
+// Moves leading/trailing spaces out of bold/italic runs and links: "<strong>Gochu </strong>"
+// would otherwise convert to "**Gochu **", which renders as literal asterisks.
+function moveEdgeSpacesOutOfEmphasis(block, document) {
+  block.querySelectorAll('strong, b, em, i, a').forEach((el) => {
+    const first = el.firstChild;
+    if (first && first.nodeType === 3 && /^[\s ]+/.test(first.textContent)) {
+      first.textContent = first.textContent.replace(/^[\s ]+/, '');
+      el.before(document.createTextNode(' '));
+    }
+    const last = el.lastChild;
+    if (last && last.nodeType === 3 && /[\s ]+$/.test(last.textContent)) {
+      last.textContent = last.textContent.replace(/[\s ]+$/, '');
+      el.after(document.createTextNode(' '));
+    }
+  });
+}
+
+// "<a><strong>text</strong></a>" next to another bold run converts to stray "**";
+// swap it to "<strong><a>text</a></strong>", the nesting used elsewhere on the site
+function hoistBoldOutOfLinks(block, document) {
+  block.querySelectorAll('a').forEach((a) => {
+    const inner = a.firstElementChild;
+    if (a.children.length !== 1 || !inner.matches('strong, b')) return;
+    if (cleanText(a.textContent) !== cleanText(inner.textContent)) return;
+    const strong = document.createElement('strong');
+    a.append(...inner.childNodes);
+    inner.remove();
+    a.replaceWith(strong);
+    strong.append(a);
+  });
+}
+
+// "<strong>Visit</strong> <strong><a>Gochu</a></strong> <strong>for more</strong>" becomes one
+// "<strong>Visit <a>Gochu</a> for more</strong>", so the bold markers never touch each other
+function mergeAdjacentBold(block) {
+  block.querySelectorAll('strong, b').forEach((el) => {
+    if (!el.parentNode) return;
+    for (;;) {
+      const gaps = [];
+      let candidate = el.nextSibling;
+      while (candidate && candidate.nodeType === 3 && !candidate.textContent.trim()) {
+        gaps.push(candidate);
+        candidate = candidate.nextSibling;
+      }
+      if (!candidate || candidate.nodeType !== 1 || candidate.tagName !== el.tagName) break;
+      if (gaps.length) el.append(' ');
+      el.append(...candidate.childNodes);
+      gaps.forEach((gap) => gap.remove());
+      candidate.remove();
+    }
+  });
+}
+
+// the importer moves edge spaces out of inline elements into "<span> </span>" before
+// transformers run; turn those back into plain spaces so the fixes below can match
+function unwrapSpaceSpans(block, document) {
+  block.querySelectorAll('span').forEach((span) => {
+    if (!span.children.length && !span.textContent.trim()) {
+      span.replaceWith(document.createTextNode(' '));
+    }
+  });
+}
+
 function processContentBlock(block, document) {
+  unwrapSpaceSpans(block, document);
+  hoistBoldOutOfLinks(block, document);
+  // twice: a space moved out of a link can still sit at the edge of the bold run around it
+  moveEdgeSpacesOutOfEmphasis(block, document);
+  moveEdgeSpacesOutOfEmphasis(block, document);
+  mergeAdjacentBold(block);
   Array.from(block.children).forEach((child) => {
     const tag = child.tagName;
 
@@ -88,6 +157,19 @@ function processContentBlock(block, document) {
           child.replaceWith(p);
         } else child.remove();
       }
+      return;
+    }
+
+    // "<h3><img>Title</h3>": the photo shows above the title, so move it to its own paragraph first
+    if (/^H[1-6]$/.test(tag) && child.querySelector('img')) {
+      child.querySelectorAll('img').forEach((img) => {
+        const p = document.createElement('p');
+        p.append(img);
+        child.before(p);
+      });
+      child.querySelectorAll('br').forEach((br) => {
+        if (!br.previousSibling || !br.nextSibling) br.remove();
+      });
       return;
     }
 

@@ -199,7 +199,63 @@ var CustomImportScript = (() => {
       lead.replaceWith(p);
     });
   }
+  function moveEdgeSpacesOutOfEmphasis(block, document) {
+    block.querySelectorAll("strong, b, em, i, a").forEach((el) => {
+      const first = el.firstChild;
+      if (first && first.nodeType === 3 && /^[\s ]+/.test(first.textContent)) {
+        first.textContent = first.textContent.replace(/^[\s ]+/, "");
+        el.before(document.createTextNode(" "));
+      }
+      const last = el.lastChild;
+      if (last && last.nodeType === 3 && /[\s ]+$/.test(last.textContent)) {
+        last.textContent = last.textContent.replace(/[\s ]+$/, "");
+        el.after(document.createTextNode(" "));
+      }
+    });
+  }
+  function hoistBoldOutOfLinks(block, document) {
+    block.querySelectorAll("a").forEach((a) => {
+      const inner = a.firstElementChild;
+      if (a.children.length !== 1 || !inner.matches("strong, b")) return;
+      if (cleanText(a.textContent) !== cleanText(inner.textContent)) return;
+      const strong = document.createElement("strong");
+      a.append(...inner.childNodes);
+      inner.remove();
+      a.replaceWith(strong);
+      strong.append(a);
+    });
+  }
+  function mergeAdjacentBold(block) {
+    block.querySelectorAll("strong, b").forEach((el) => {
+      if (!el.parentNode) return;
+      for (; ; ) {
+        const gaps = [];
+        let candidate = el.nextSibling;
+        while (candidate && candidate.nodeType === 3 && !candidate.textContent.trim()) {
+          gaps.push(candidate);
+          candidate = candidate.nextSibling;
+        }
+        if (!candidate || candidate.nodeType !== 1 || candidate.tagName !== el.tagName) break;
+        if (gaps.length) el.append(" ");
+        el.append(...candidate.childNodes);
+        gaps.forEach((gap) => gap.remove());
+        candidate.remove();
+      }
+    });
+  }
+  function unwrapSpaceSpans(block, document) {
+    block.querySelectorAll("span").forEach((span) => {
+      if (!span.children.length && !span.textContent.trim()) {
+        span.replaceWith(document.createTextNode(" "));
+      }
+    });
+  }
   function processContentBlock(block, document) {
+    unwrapSpaceSpans(block, document);
+    hoistBoldOutOfLinks(block, document);
+    moveEdgeSpacesOutOfEmphasis(block, document);
+    moveEdgeSpacesOutOfEmphasis(block, document);
+    mergeAdjacentBold(block);
     Array.from(block.children).forEach((child) => {
       const tag = child.tagName;
       if (tag === "H5") {
@@ -223,6 +279,17 @@ var CustomImportScript = (() => {
             child.replaceWith(p);
           } else child.remove();
         }
+        return;
+      }
+      if (/^H[1-6]$/.test(tag) && child.querySelector("img")) {
+        child.querySelectorAll("img").forEach((img) => {
+          const p = document.createElement("p");
+          p.append(img);
+          child.before(p);
+        });
+        child.querySelectorAll("br").forEach((br) => {
+          if (!br.previousSibling || !br.nextSibling) br.remove();
+        });
         return;
       }
       if (tag === "IMG") {

@@ -971,6 +971,14 @@ body.nsman-article main .section:not(.centered) .default-content-wrapper h3 {
   line-height: 1.15;
 }
 
+/* venue details ("Café: … / Location: … / Date: …"), bold body-size lines on the source */
+body.nsman-article main .section:not(.centered) .default-content-wrapper h4 {
+  margin: 1.33em 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
 body.nsman-article main .section:not(.centered) .default-content-wrapper p > picture:only-child img {
   display: block;
   width: 100%;
