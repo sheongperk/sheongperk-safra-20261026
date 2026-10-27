@@ -1,0 +1,25 @@
+{
+  "variantName": "quote-photo-caption",
+  "baseBlock": "quote",
+  "version": "1.0.0",
+  "created": "2026-10-27T00:00:00.000Z",
+  "description": "Full-width article photo with a pull quotation and dash attribution set beneath it as a small bold caption, no box or border.",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "purpose": "pull-quote-with-photo",
+    "imagePattern": "full-width-image-above-text",
+    "layout": "Single column: photo, then the quotation and '– attribution' as a bold 13px caption; no box, border or decorative quote mark."
+  },
+  "contentPattern": {
+    "structure": "row 1: photo (image paragraph) followed by quotation paragraph(s); row 2: attribution",
+    "rows": 2,
+    "columns": 1,
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "NSMAN magazine articles where a photo is captioned with a quotation from the person pictured, e.g. 'Every lap may be an individual effort, but together, our efforts can make waves for better lives.' – Tommy Ang.",
+  "reuseGuidance": "Use for a photo whose caption is a quotation with attribution. For a plain photo caption without a quote use default content; for a boxed standalone pull quote without a photo use the quote block."
+}

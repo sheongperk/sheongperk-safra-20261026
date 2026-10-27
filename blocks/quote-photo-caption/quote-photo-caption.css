@@ -1,0 +1,50 @@
+/* source: bold h5 caption, photo with the quotation and attribution on the line below */
+.quote-photo-caption figure {
+  margin: 22px 0;
+  font-size: 13.28px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.quote-photo-caption .quote-photo-caption-quotation,
+.quote-photo-caption .quote-photo-caption-quotation > div,
+.quote-photo-caption .quote-photo-caption-attribution,
+.quote-photo-caption .quote-photo-caption-attribution > div {
+  display: inline;
+}
+
+.quote-photo-caption .quote-photo-caption-quotation {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.quote-photo-caption .quote-photo-caption-quotation p {
+  margin: 0;
+}
+
+.quote-photo-caption .quote-photo-caption-photo picture,
+.quote-photo-caption .quote-photo-caption-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.quote-photo-caption .quote-photo-caption-text {
+  display: inline;
+}
+
+.quote-photo-caption .quote-photo-caption-attribution p {
+  display: inline;
+  margin: 0;
+}
+
+.quote-photo-caption .quote-photo-caption-attribution > div:not(:has(> p))::before,
+.quote-photo-caption .quote-photo-caption-attribution > div > p:first-child::before {
+  content: ' \2013\00a0';
+}
+
+.quote-photo-caption .quote-photo-caption-attribution cite {
+  font-style: normal;
+}

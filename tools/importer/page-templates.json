@@ -79,6 +79,68 @@
           ]
         }
       ]
+    },
+    {
+      "name": "nsman-article",
+      "urls": [
+        "https://www.safra.sg/nsman-magazine/Spotlight/editor-picks/2026/10/26/every-lap-counts-safra-swim-for-hope-2026"
+      ],
+      "representativeUrl": "https://www.safra.sg/nsman-magazine/Spotlight/editor-picks/2026/10/26/every-lap-counts-safra-swim-for-hope-2026",
+      "description": "NSman Magazine article page",
+      "blocks": [
+        {
+          "name": "quote-photo-caption",
+          "instances": [
+            ".nsman-content-block > h5:has(img)"
+          ]
+        }
+      ],
+      "urlPattern": "/nsman-magazine/*/*/*/*/*/*",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Magazine masthead",
+          "selector": [
+            "div.rte:has(h1)",
+            "header.site-header ~ div.rte:has(strong)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.rte h1"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Article",
+          "selector": [
+            ".container.container-xs"
+          ],
+          "style": null,
+          "blocks": [
+            "quote-photo-caption"
+          ],
+          "defaultContent": [
+            ".nsman-story-headline",
+            ".container-xs .lead",
+            ".container-xs .mb-4",
+            ".nsman-content-block"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "eNSMAN logo",
+          "selector": [
+            ".container-xs + .rte",
+            "div.rte:has(img[alt='eNSMAN Logo'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "img[alt='eNSMAN Logo']"
+          ]
+        }
+      ]
     }
   ]
 }

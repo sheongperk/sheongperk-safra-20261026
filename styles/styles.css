@@ -914,3 +914,75 @@ main .section.centered h1 {
 main .section.centered .default-content-wrapper > p > picture:only-child img {
   width: 174px;
 }
+
+/* NSman article template (page metadata Template: nsman-article), from the source .container-xs article */
+body.nsman-article main > .section > div {
+  max-width: 900px;
+}
+
+/* masthead "NSMAN MAGAZINE SPOTLIGHT": same look as the landing page title, kept as h2;
+   the source keeps three empty spacer paragraphs above it, so it starts 278px from the page top */
+body.nsman-article main .section.centered h2 {
+  max-width: 9.5em;
+  margin: calc(278px - var(--header-height)) 0 20px;
+  margin-inline: auto;
+  font-size: var(--brand-h1-font-size);
+  font-weight: 900;
+  line-height: 1.15;
+  text-decoration: underline;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper h1 {
+  margin: 45px 0 0.67em;
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper p {
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+/* lead paragraph under the headline */
+body.nsman-article main .section:not(.centered) .default-content-wrapper h1 + p {
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+/* byline "by Author" and date, muted on one line */
+body.nsman-article main .section:not(.centered) .default-content-wrapper h1 + p + p,
+body.nsman-article main .section:not(.centered) .default-content-wrapper h1 + p + p + p {
+  display: inline-block;
+  margin: 0 0 24px;
+  color: #999;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper h1 + p + p + p {
+  padding-left: 24px;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper h3 {
+  margin: 1em 0;
+  font-size: 18.72px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper p > picture:only-child img {
+  display: block;
+  width: 100%;
+}
+
+/* photo caption: a bold paragraph right under a photo */
+body.nsman-article main .section:not(.centered) .default-content-wrapper p:has(> picture:only-child):has(+ p > strong:only-child) {
+  margin: 22px 0 0;
+}
+
+body.nsman-article main .section:not(.centered) .default-content-wrapper p:has(> picture:only-child) + p:has(> strong:only-child) {
+  margin: 0 0 22px;
+  font-size: 13.28px;
+  line-height: 1.15;
+}
