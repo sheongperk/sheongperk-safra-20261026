@@ -217,8 +217,11 @@ var CustomImportScript = (() => {
           child.replaceWith(frag);
         } else {
           const caption = cleanText(child.textContent);
-          if (caption) child.replaceWith(makeCaption(document, caption));
-          else child.remove();
+          if (caption) {
+            const p = makeCaption(document, "");
+            p.firstChild.append(...child.childNodes);
+            child.replaceWith(p);
+          } else child.remove();
         }
         return;
       }

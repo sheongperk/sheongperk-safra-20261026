@@ -81,8 +81,12 @@ function processContentBlock(block, document) {
         child.replaceWith(frag);
       } else {
         const caption = cleanText(child.textContent);
-        if (caption) child.replaceWith(makeCaption(document, caption));
-        else child.remove();
+        if (caption) {
+          // keep inline formatting (e.g. <em>Written by ...</em>) inside the bold caption
+          const p = makeCaption(document, '');
+          p.firstChild.append(...child.childNodes);
+          child.replaceWith(p);
+        } else child.remove();
       }
       return;
     }
